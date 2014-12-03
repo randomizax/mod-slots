@@ -86,8 +86,8 @@ window.plugin.portalModSlots.addLabel = function(guid) {
   var level = L.marker(latLng, {
     icon: L.divIcon({
       className: 'plugin-mod-slots',
-      iconSize: [window.plugin.portalModSlots.ICON_SIZE * 10, window.plugin.portalModSlots.ICON_SIZE],
-      iconAnchor: [0, -window.plugin.portalModSlots.ICON_SIZE],
+      iconSize: [10,10],
+      iconAnchor: [18,18],
       html: modSlotsStr
       }),
     guid: guid
