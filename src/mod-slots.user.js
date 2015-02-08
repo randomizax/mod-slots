@@ -2,7 +2,7 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.2.0.@@DATETIMEVERSION@@
+// @version        0.2.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -52,6 +52,7 @@ window.plugin.portalModSlots.setupCSS = function() {
             color: #660066;\
             font-family: sans-serif;\
             text-align: center;\
+            text-wrap: none;\
             text-shadow: 0 0 0.5em lightyellow, 0 0 0.5em lightyellow, 0 0 0.5em lightyellow;\
             pointer-events: none;\
             -webkit-text-size-adjust:none;\
@@ -115,7 +116,7 @@ window.plugin.portalModSlots.addLabel = function(guid) {
   var mods = L.marker(latLng, {
     icon: L.divIcon({
       className: 'plugin-mod-slots',
-      iconSize: [12,32],
+      iconSize: [40,40],
       iconAnchor: [22,22],
       html: modStr
       }),
