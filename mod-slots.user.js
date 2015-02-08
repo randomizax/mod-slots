@@ -1,12 +1,12 @@
 // ==UserScript==
 // @id             iitc-plugin-mod-slots@randomizax
-// @name           IITC plugin: Portal Mod Slots Availability
+// @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.1.6.20150131.152149
+// @version        0.2.0.20150208.53345
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://rawgit.com/randomizax/mod-slots/latest/mod-slots.meta.js
 // @downloadURL    https://rawgit.com/randomizax/mod-slots/latest/mod-slots.user.js
-// @description    [randomizax-2015-01-31-152149] Show mod slots vacancy.
+// @description    [randomizax-2015-02-08-053345] Show mod slots on map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -22,7 +22,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 // plugin_info.buildName = 'randomizax';
-// plugin_info.dateTimeVersion = '20150131.152149';
+// plugin_info.dateTimeVersion = '20150208.53345';
 // plugin_info.pluginId = 'mod-slots';
 //END PLUGIN AUTHORS NOTE
 
@@ -36,9 +36,25 @@ window.plugin.portalModSlots = function() {
 
 window.plugin.portalModSlots.ICON_SIZE = 12;
 window.plugin.portalModSlots.MOBILE_SCALE = 1.5;
+window.plugin.portalModSlots.MOD_COLOR = {
+  VERY_RARE: '#683480', RARE: '#3a64bf', COMMON: '#44a065', NONE: '#fff'
+};
+window.plugin.portalModSlots.MOD_DISPLAY = {
+  "Portal Shield":  '▼',
+  "AXA Shield":     '◆',
+  "Multi-hack":     '●',
+  "Heat Sink":      '★',
+  "Force Amp":      '×',
+  "Turret":         '＊',
+  "Link Amplifier": '▲',
+  OCCUPIED:         '■',
+  NONE:             '□'
+};
 
-window.plugin.portalModSlots.levelLayers = {};
-window.plugin.portalModSlots.levelLayerGroup = null;
+window.plugin.portalModSlots.slotLayers = {};
+window.plugin.portalModSlots.slotLayerGroup = null;
+window.plugin.portalModSlots.modLayers = {};
+window.plugin.portalModSlots.modLayerGroup = null;
 
 window.plugin.portalModSlots.setupCSS = function() {
   $("<style>")
@@ -56,15 +72,21 @@ window.plugin.portalModSlots.setupCSS = function() {
 }
 
 window.plugin.portalModSlots.removeLabel = function(guid) {
-  var previousLayer = window.plugin.portalModSlots.levelLayers[guid];
+  var previousLayer = window.plugin.portalModSlots.slotLayers[guid];
   if(previousLayer) {
-    window.plugin.portalModSlots.levelLayerGroup.removeLayer(previousLayer);
-    delete plugin.portalModSlots.levelLayers[guid];
+    window.plugin.portalModSlots.slotLayerGroup.removeLayer(previousLayer);
+    delete plugin.portalModSlots.slotLayers[guid];
+  }
+  previousLayer = window.plugin.portalModSlots.modLayers[guid];
+  if(previousLayer) {
+    window.plugin.portalModSlots.modLayerGroup.removeLayer(previousLayer);
+    delete plugin.portalModSlots.modLayers[guid];
   }
 }
 
 window.plugin.portalModSlots.addLabel = function(guid) {
-  if (!map.hasLayer(window.plugin.portalModSlots.levelLayerGroup)) {
+  if (!map.hasLayer(window.plugin.portalModSlots.slotLayerGroup) &&
+      !map.hasLayer(window.plugin.portalModSlots.modLayerGroup)) {
     return;
   }
 
@@ -74,16 +96,24 @@ window.plugin.portalModSlots.addLabel = function(guid) {
   // add portal hack details to layers
   var d = window.portalDetail.get(guid);
   var latLng = window.portals[guid].getLatLng();
+  var mc = window.plugin.portalModSlots.MOD_COLOR;
+  var md = window.plugin.portalModSlots.MOD_DISPLAY;
   if (!d) return;
   var modSlotsStr = '';
+  var modStr = '';
   for (var i=0; i<4; i++) {
-    if (d.mods[i] === null) {
-      modSlotsStr += '□';
+    var mod = d.mods[i];
+    if (mod === null) {
+      modSlotsStr += md.NONE;
+      modStr += md.NONE;
     } else {
-      modSlotsStr += '■';
+      modSlotsStr += md.OCCUPIED;
+      var color = mod.rarity ? mc[mod.rarity] : mc.NONE;
+      var disp = md[mod.name] || md.OCCUPIED;
+      modStr += '<span style="color: ' + color + '">' + disp + "</span>";
     }
   }
-  var level = L.marker(latLng, {
+  var slots = L.marker(latLng, {
     icon: L.divIcon({
       className: 'plugin-mod-slots',
       iconSize: [12,12],
@@ -92,13 +122,25 @@ window.plugin.portalModSlots.addLabel = function(guid) {
       }),
     guid: guid
   });
-  plugin.portalModSlots.levelLayers[guid] = level;
-  level.addTo(plugin.portalModSlots.levelLayerGroup);
+  plugin.portalModSlots.slotLayers[guid] = slots;
+  slots.addTo(plugin.portalModSlots.slotLayerGroup);
+  var mods = L.marker(latLng, {
+    icon: L.divIcon({
+      className: 'plugin-mod-slots',
+      iconSize: [12,32],
+      iconAnchor: [22,22],
+      html: modStr
+      }),
+    guid: guid
+  });
+  plugin.portalModSlots.modLayers[guid] = mods;
+  mods.addTo(plugin.portalModSlots.modLayerGroup);
 }
 
 window.plugin.portalModSlots.updatePortalLabels = function() {
   // as this is called every time layers are toggled, there's no point in doing it when the layer is off
-  if (!map.hasLayer(window.plugin.portalModSlots.levelLayerGroup)) {
+  if (!map.hasLayer(window.plugin.portalModSlots.slotLayerGroup) &&
+      !map.hasLayer(window.plugin.portalModSlots.modLayerGroup)) {
     return;
   }
   var portalPoints = {};
@@ -138,8 +180,10 @@ var setup = function() {
 
   window.plugin.portalModSlots.setupCSS();
 
-  window.plugin.portalModSlots.levelLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal Mod Slots', window.plugin.portalModSlots.levelLayerGroup, true);
+  window.plugin.portalModSlots.slotLayerGroup = new L.LayerGroup();
+  window.plugin.portalModSlots.modLayerGroup = new L.LayerGroup();
+  window.addLayerGroup('Portal Mod Slots', window.plugin.portalModSlots.slotLayerGroup, true);
+  window.addLayerGroup('Portal Mods', window.plugin.portalModSlots.modLayerGroup, false);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalModSlots.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalModSlots.delayedUpdatePortalLabels(0.5); });
