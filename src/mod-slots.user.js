@@ -34,7 +34,7 @@ window.plugin.portalModSlots.MOD_DISPLAY = {
   "Heat Sink":      '★',
   "Force Amp":      '×',
   "Turret":         '＊',
-  "Link Amplifier": '▲',
+  "Link Amp":       '▲',
   OCCUPIED:         '■',
   NONE:             '□'
 };
