@@ -2,7 +2,7 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.2.1.@@DATETIMEVERSION@@
+// @version        0.2.3.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -22,19 +22,19 @@
 window.plugin.portalModSlots = function() {
 };
 
-window.plugin.portalModSlots.ICON_SIZE = 12;
-window.plugin.portalModSlots.MOBILE_SCALE = 1.5;
 window.plugin.portalModSlots.MOD_COLOR = {
-  VERY_RARE: '#683480', RARE: '#3a64bf', COMMON: '#44a065', NONE: '#fff'
+  VERY_RARE: '#683480', RARE: '#3a64bf', COMMON: '#44a065', NONE: '#fff',
+  "SoftBank Ultra Link": '#888800'
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  '▼',
   "AXA Shield":     '◆',
   "Multi-hack":     '●',
   "Heat Sink":      '★',
-  "Force Amp":      '×',
-  "Turret":         '＊',
+  "Force Amp":      '✖',
+  "Turret":         '✱',
   "Link Amp":       '▲',
+  "SoftBank Ultra Link":       '▲',
   OCCUPIED:         '■',
   NONE:             '□'
 };
@@ -48,7 +48,7 @@ window.plugin.portalModSlots.setupCSS = function() {
   $("<style>")
     .prop("type", "text/css")
     .html(".plugin-mod-slots {\
-            font-size: 7px;\
+            font-size: " + (L.Browser.mobile ? "10" : "7") + "pt;\
             color: #660066;\
             font-family: sans-serif;\
             text-align: center;\
@@ -97,8 +97,9 @@ window.plugin.portalModSlots.addLabel = function(guid) {
       modStr += md.NONE;
     } else {
       modSlotsStr += md.OCCUPIED;
-      var color = mod.rarity ? mc[mod.rarity] : mc.NONE;
+      var color = mc[mod.name] || (mod.rarity ? mc[mod.rarity] : mc.NONE);
       var disp = md[mod.name] || md.OCCUPIED;
+      console.log(mod.name + ": " + color + ": " + disp);
       modStr += '<span style="color: ' + color + '">' + disp + "</span>";
     }
   }
@@ -116,8 +117,8 @@ window.plugin.portalModSlots.addLabel = function(guid) {
   var mods = L.marker(latLng, {
     icon: L.divIcon({
       className: 'plugin-mod-slots',
-      iconSize: [40,40],
-      iconAnchor: [22,22],
+      iconSize: [50,40],
+      iconAnchor: [27,22],
       html: modStr
       }),
     guid: guid
@@ -171,8 +172,8 @@ var setup = function() {
 
   window.plugin.portalModSlots.slotLayerGroup = new L.LayerGroup();
   window.plugin.portalModSlots.modLayerGroup = new L.LayerGroup();
-  window.addLayerGroup('Portal Mod Slots', window.plugin.portalModSlots.slotLayerGroup, true);
-  window.addLayerGroup('Portal Mods', window.plugin.portalModSlots.modLayerGroup, false);
+  window.addLayerGroup('Portal Mod Slots', window.plugin.portalModSlots.slotLayerGroup, false);
+  window.addLayerGroup('Portal Mods', window.plugin.portalModSlots.modLayerGroup, true);
 
   window.addHook('requestFinished', function() { setTimeout(function(){window.plugin.portalModSlots.delayedUpdatePortalLabels(3.0);},1); });
   window.addHook('mapDataRefreshEnd', function() { window.plugin.portalModSlots.delayedUpdatePortalLabels(0.5); });
