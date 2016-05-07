@@ -2,7 +2,7 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.2.3.@@DATETIMEVERSION@@
+// @version        0.2.4.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -32,7 +32,7 @@ window.plugin.portalModSlots.MOD_DISPLAY = {
   "Multi-hack":     '●',
   "Heat Sink":      '★',
   "Force Amp":      '✖',
-  "Turret":         '✱',
+  "Turret":         '✶',
   "Link Amp":       '▲',
   "SoftBank Ultra Link":       '▲',
   OCCUPIED:         '■',
