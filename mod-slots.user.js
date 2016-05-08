@@ -48,7 +48,7 @@ window.plugin.portalModSlots.MOD_DISPLAY = {
   "Link Amp":       'LA',
   "SoftBank Ultra Link":       'SB',
   OCCUPIED:         'UK',
-  NONE:             'BL'
+  NONE:             '__'
 };
 
 window.plugin.portalModSlots.slotLayers = {};
@@ -60,19 +60,19 @@ window.plugin.portalModSlots.setupCSS = function() {
   $("<style>")
     .prop("type", "text/css")
     .html("@font-face {\
-              font-family: \'icomoon\';\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.eot?i8pfzu\');\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.eot?i8pfzu#iefix\') format(\'embedded-opentype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.ttf?i8pfzu\') format(\'truetype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.woff?i8pfzu\') format(\'woff\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.svg?i8pfzu#icomoon\') format(\'svg\');\
+              font-family: \'ingressmods\';\
+              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz\');\
+              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
               font-weight: normal;\
               font-style: normal;\
           }\
           .plugin-mod-slots {\
             font-size: " + (L.Browser.mobile ? "10" : "7") + "pt;\
             color: #660066;\
-            font-family: \'icomoon\'!important;\
+            font-family: \'ingressmods\'!important;\
             text-align: center;\
             text-wrap: none;\
             text-shadow: 0 0 0.5em lightyellow, 0 0 0.5em lightyellow, 0 0 0.5em lightyellow;\
