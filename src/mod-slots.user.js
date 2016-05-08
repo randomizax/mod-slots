@@ -23,20 +23,20 @@ window.plugin.portalModSlots = function() {
 };
 
 window.plugin.portalModSlots.MOD_COLOR = {
-  VERY_RARE: '#683480', RARE: '#3a64bf', COMMON: '#44a065', NONE: '#fff',
-  "SoftBank Ultra Link": '#888800'
+  VERY_RARE: '#ff5cf4', RARE: '#683480', COMMON: '#44a065', NONE: '#fff',
+  "SoftBank Ultra Link": '#d09d00'
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
-  "Portal Shield":  '▼',
-  "AXA Shield":     '◆',
-  "Multi-hack":     '●',
-  "Heat Sink":      '★',
-  "Force Amp":      '✖',
-  "Turret":         '✲',
-  "Link Amp":       '▲',
-  "SoftBank Ultra Link":       '▲',
-  OCCUPIED:         '■',
-  NONE:             '□'
+  "Portal Shield":  'PS',
+  "AXA Shield":     'AX',
+  "Multi-hack":     'MH',
+  "Heat Sink":      'HS',
+  "Force Amp":      'FA',
+  "Turret":         'TU',
+  "Link Amp":       'LA',
+  "SoftBank Ultra Link":       'SB',
+  OCCUPIED:         'UK',
+  NONE:             '__'
 };
 
 window.plugin.portalModSlots.slotLayers = {};
@@ -47,15 +47,35 @@ window.plugin.portalModSlots.modLayerGroup = null;
 window.plugin.portalModSlots.setupCSS = function() {
   $("<style>")
     .prop("type", "text/css")
-    .html(".plugin-mod-slots {\
+    .html("@font-face {\
+              font-family: \'ingressmods\';\
+              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz\');\
+              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
+              font-weight: normal;\
+              font-style: normal;\
+          }\
+          .plugin-mod-slots {\
             font-size: " + (L.Browser.mobile ? "10" : "7") + "pt;\
             color: #660066;\
-            font-family: sans-serif;\
+            font-family: \'ingressmods\'!important;\
             text-align: center;\
             text-wrap: none;\
             text-shadow: 0 0 0.5em lightyellow, 0 0 0.5em lightyellow, 0 0 0.5em lightyellow;\
             pointer-events: none;\
+            line-height: 1;\
+            letter-spacing: 0;\
             -webkit-text-size-adjust:none;\
+            -webkit-font-feature-settings: \"liga\";\
+            -moz-font-feature-settings: \"liga=1\";\
+            -moz-font-feature-settings: \"liga\";\
+            -ms-font-feature-settings: \"liga\" 1;\
+            -o-font-feature-settings: \"liga\";\
+            font-feature-settings: \"liga\";\
+            -webkit-font-smoothing: antialiased;\
+            -moz-osx-font-smoothing: grayscale;\
           }")
   .appendTo("head");
 }
