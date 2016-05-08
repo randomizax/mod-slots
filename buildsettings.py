@@ -14,7 +14,7 @@ buildSettings = {
     # local: use this build if you're not modifying external resources
     # no external resources allowed - they're not needed any more
     'randomizax': {
-        'resourceUrlBase': None,
+        'resourceUrlBase': 'https://rawgit.com/randomizax/mod-slots/latest',
         'distUrlBase': 'https://rawgit.com/randomizax/mod-slots/latest',
     },
 

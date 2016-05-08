@@ -2,11 +2,11 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.3.0.20160507.35602
+// @version        0.4.0.20160508.160030
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://rawgit.com/randomizax/mod-slots/latest/mod-slots.meta.js
 // @downloadURL    https://rawgit.com/randomizax/mod-slots/latest/mod-slots.user.js
-// @description    [randomizax-2016-05-07-035602] Show mod slots on map.
+// @description    [randomizax-2016-05-08-160030] Show mod slots on map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -22,7 +22,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 // plugin_info.buildName = 'randomizax';
-// plugin_info.dateTimeVersion = '20160507.35602';
+// plugin_info.dateTimeVersion = '20160508.160030';
 // plugin_info.pluginId = 'mod-slots';
 //END PLUGIN AUTHORS NOTE
 
@@ -61,11 +61,11 @@ window.plugin.portalModSlots.setupCSS = function() {
     .prop("type", "text/css")
     .html("@font-face {\
               font-family: \'ingressmods\';\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz\');\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
+              src:    url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.eot?c6xamz\');\
+              src:    url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
+                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
+                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
+                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
               font-weight: normal;\
               font-style: normal;\
           }\
@@ -229,3 +229,5 @@ var info = {};
 if (typeof GM_info !== 'undefined' && GM_info && GM_info.script) info.script = { version: GM_info.script.version, name: GM_info.script.name, description: GM_info.script.description };
 script.appendChild(document.createTextNode('('+ wrapper +')('+JSON.stringify(info)+');'));
 (document.body || document.head || document.documentElement).appendChild(script);
+
+

@@ -2,7 +2,7 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.3.0.@@DATETIMEVERSION@@
+// @version        0.4.0.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -49,11 +49,11 @@ window.plugin.portalModSlots.setupCSS = function() {
     .prop("type", "text/css")
     .html("@font-face {\
               font-family: \'ingressmods\';\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz\');\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
+              src:    url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.eot?c6xamz\');\
+              src:    url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
+                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
+                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
+                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
               font-weight: normal;\
               font-style: normal;\
           }\
