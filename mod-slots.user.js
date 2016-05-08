@@ -61,11 +61,11 @@ window.plugin.portalModSlots.setupCSS = function() {
     .prop("type", "text/css")
     .html("@font-face {\
               font-family: \'icomoon\';\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/ec3aea5be6f3dbe63e58e042d09412417f6cdd8c/icomoon.eot?i8pfzu\');\
-              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/ec3aea5be6f3dbe63e58e042d09412417f6cdd8c/icomoon.eot?i8pfzu#iefix\') format(\'embedded-opentype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/ec3aea5be6f3dbe63e58e042d09412417f6cdd8c/icomoon.ttf?i8pfzu\') format(\'truetype\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/ec3aea5be6f3dbe63e58e042d09412417f6cdd8c/icomoon.woff?i8pfzu\') format(\'woff\'),\
-                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/ec3aea5be6f3dbe63e58e042d09412417f6cdd8c/icomoon.svg?i8pfzu#icomoon\') format(\'svg\');\
+              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.eot?i8pfzu\');\
+              src:    url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.eot?i8pfzu#iefix\') format(\'embedded-opentype\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.ttf?i8pfzu\') format(\'truetype\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.woff?i8pfzu\') format(\'woff\'),\
+                  url(\'https://rawgit.com/Trueloveplanet/mod-slots/master/fonts/icomoon.svg?i8pfzu#icomoon\') format(\'svg\');\
               font-weight: normal;\
               font-style: normal;\
           }\
