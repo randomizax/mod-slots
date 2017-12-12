@@ -2,11 +2,11 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.4.0.20171212.182043
+// @version        0.4.0.20171212.183018
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://rawgit.com/randomizax/mod-slots/latest/mod-slots.meta.js
 // @downloadURL    https://rawgit.com/randomizax/mod-slots/latest/mod-slots.user.js
-// @description    [randomizax-2017-12-12-182043] Show mod slots on map.
+// @description    [randomizax-2017-12-12-183018] Show mod slots on map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -22,7 +22,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 // plugin_info.buildName = 'randomizax';
-// plugin_info.dateTimeVersion = '20171212.182043';
+// plugin_info.dateTimeVersion = '20171212.183018';
 // plugin_info.pluginId = 'mod-slots';
 //END PLUGIN AUTHORS NOTE
 
@@ -42,7 +42,7 @@ window.plugin.portalModSlots.MOD_COLOR = {
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  'PS',
-  "Aegis Shield":     'AS',
+  "Aegis Shield":     'AX',
   "Multi-hack":     'MH',
   "Heat Sink":      'HS',
   "Force Amp":      'FA',

@@ -30,7 +30,7 @@ window.plugin.portalModSlots.MOD_COLOR = {
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  'PS',
-  "Aegis Shield":     'AS',
+  "Aegis Shield":     'AX',
   "Multi-hack":     'MH',
   "Heat Sink":      'HS',
   "Force Amp":      'FA',
