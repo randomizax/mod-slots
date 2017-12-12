@@ -2,11 +2,11 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.4.0.20160508.160030
+// @version        0.4.0.20171212.182043
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://rawgit.com/randomizax/mod-slots/latest/mod-slots.meta.js
 // @downloadURL    https://rawgit.com/randomizax/mod-slots/latest/mod-slots.user.js
-// @description    [randomizax-2016-05-08-160030] Show mod slots on map.
+// @description    [randomizax-2017-12-12-182043] Show mod slots on map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -22,7 +22,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 // plugin_info.buildName = 'randomizax';
-// plugin_info.dateTimeVersion = '20160508.160030';
+// plugin_info.dateTimeVersion = '20171212.182043';
 // plugin_info.pluginId = 'mod-slots';
 //END PLUGIN AUTHORS NOTE
 
@@ -36,17 +36,21 @@ window.plugin.portalModSlots = function() {
 
 window.plugin.portalModSlots.MOD_COLOR = {
   VERY_RARE: '#ff5cf4', RARE: '#683480', COMMON: '#44a065', NONE: '#fff',
-  "SoftBank Ultra Link": '#d09d00'
+  "SoftBank Ultra Link": '#d09d00',
+  "ITOEN Transmuter Plus": '#38389b',
+  "ITOEN Transmuter Minus": '#38389b'
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  'PS',
-  "AXA Shield":     'AX',
+  "Aegis Shield":     'AS',
   "Multi-hack":     'MH',
   "Heat Sink":      'HS',
   "Force Amp":      'FA',
   "Turret":         'TU',
   "Link Amp":       'LA',
   "SoftBank Ultra Link":       'SB',
+  "ITOEN Transmuter Plus":     'PL',
+  "ITOEN Transmuter Minus":    'MI',
   OCCUPIED:         'UK',
   NONE:             '__'
 };
@@ -61,11 +65,11 @@ window.plugin.portalModSlots.setupCSS = function() {
     .prop("type", "text/css")
     .html("@font-face {\
               font-family: \'ingressmods\';\
-              src:    url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.eot?c6xamz\');\
-              src:    url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
-                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
-                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
-                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
+              src:    url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.eot?914szp\');\
+              src:    url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.eot?914szp#iefix\') format(\'embedded-opentype\'),\
+                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.ttf?914szp\') format(\'truetype\'),\
+                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.woff?914szp\') format(\'woff\'),\
+                  url(\'https://rawgit.com/randomizax/mod-slots/latest/fonts/ingressmods.svg?914szp#ingressmods\') format(\'svg\');\
               font-weight: normal;\
               font-style: normal;\
           }\
