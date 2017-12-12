@@ -24,7 +24,9 @@ window.plugin.portalModSlots = function() {
 
 window.plugin.portalModSlots.MOD_COLOR = {
   VERY_RARE: '#ff5cf4', RARE: '#683480', COMMON: '#44a065', NONE: '#fff',
-  "SoftBank Ultra Link": '#d09d00'
+  "SoftBank Ultra Link": '#d09d00',
+  "ITOEN Transmuter Plus": '#38389b',
+  "ITOEN Transmuter Minus": '#38389b'
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  'PS',
@@ -35,6 +37,8 @@ window.plugin.portalModSlots.MOD_DISPLAY = {
   "Turret":         'TU',
   "Link Amp":       'LA',
   "SoftBank Ultra Link":       'SB',
+  "ITOEN Transmuter Plus":     'PL',
+  "ITOEN Transmuter Minus":    'MI',
   OCCUPIED:         'UK',
   NONE:             '__'
 };
@@ -49,11 +53,11 @@ window.plugin.portalModSlots.setupCSS = function() {
     .prop("type", "text/css")
     .html("@font-face {\
               font-family: \'ingressmods\';\
-              src:    url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.eot?c6xamz\');\
-              src:    url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.eot?c6xamz#iefix\') format(\'embedded-opentype\'),\
-                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.ttf?c6xamz\') format(\'truetype\'),\
-                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.woff?c6xamz\') format(\'woff\'),\
-                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.svg?c6xamz#ingressmods\') format(\'svg\');\
+              src:    url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.eot?914szp\');\
+              src:    url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.eot?914szp#iefix\') format(\'embedded-opentype\'),\
+                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.ttf?914szp\') format(\'truetype\'),\
+                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.woff?914szp\') format(\'woff\'),\
+                  url(\'@@RESOURCEURLBASE@@/fonts/ingressmods.svg?914szp#ingressmods\') format(\'svg\');\
               font-weight: normal;\
               font-style: normal;\
           }\
