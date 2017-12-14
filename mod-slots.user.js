@@ -2,11 +2,11 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        0.4.0.20171212.183018
+// @version        0.4.0.20171214.132954
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://rawgit.com/randomizax/mod-slots/latest/mod-slots.meta.js
 // @downloadURL    https://rawgit.com/randomizax/mod-slots/latest/mod-slots.user.js
-// @description    [randomizax-2017-12-12-183018] Show mod slots on map.
+// @description    [randomizax-2017-12-14-132954] Show mod slots on map.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -22,7 +22,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 // plugin_info.buildName = 'randomizax';
-// plugin_info.dateTimeVersion = '20171212.183018';
+// plugin_info.dateTimeVersion = '20171214.132954';
 // plugin_info.pluginId = 'mod-slots';
 //END PLUGIN AUTHORS NOTE
 
@@ -37,8 +37,8 @@ window.plugin.portalModSlots = function() {
 window.plugin.portalModSlots.MOD_COLOR = {
   VERY_RARE: '#ff5cf4', RARE: '#683480', COMMON: '#44a065', NONE: '#fff',
   "SoftBank Ultra Link": '#d09d00',
-  "ITOEN Transmuter Plus": '#38389b',
-  "ITOEN Transmuter Minus": '#38389b'
+  "Ito En Transmuter (+)": '#38389b',
+  "Ito En Transmuter (-)": '#38389b'
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  'PS',
@@ -49,8 +49,8 @@ window.plugin.portalModSlots.MOD_DISPLAY = {
   "Turret":         'TU',
   "Link Amp":       'LA',
   "SoftBank Ultra Link":       'SB',
-  "ITOEN Transmuter Plus":     'PL',
-  "ITOEN Transmuter Minus":    'MI',
+  "Ito En Transmuter (+)":     'PL',
+  "Ito En Transmuter (-)":    'MI',
   OCCUPIED:         'UK',
   NONE:             '__'
 };

@@ -25,8 +25,8 @@ window.plugin.portalModSlots = function() {
 window.plugin.portalModSlots.MOD_COLOR = {
   VERY_RARE: '#ff5cf4', RARE: '#683480', COMMON: '#44a065', NONE: '#fff',
   "SoftBank Ultra Link": '#d09d00',
-  "ITOEN Transmuter Plus": '#38389b',
-  "ITOEN Transmuter Minus": '#38389b'
+  "Ito En Transmuter (+)": '#38389b',
+  "Ito En Transmuter (-)": '#38389b'
 };
 window.plugin.portalModSlots.MOD_DISPLAY = {
   "Portal Shield":  'PS',
@@ -37,8 +37,8 @@ window.plugin.portalModSlots.MOD_DISPLAY = {
   "Turret":         'TU',
   "Link Amp":       'LA',
   "SoftBank Ultra Link":       'SB',
-  "ITOEN Transmuter Plus":     'PL',
-  "ITOEN Transmuter Minus":    'MI',
+  "Ito En Transmuter (+)":     'PL',
+  "Ito En Transmuter (-)":    'MI',
   OCCUPIED:         'UK',
   NONE:             '__'
 };
