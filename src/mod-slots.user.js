@@ -2,15 +2,13 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        1.0.1.@@DATETIMEVERSION@@
-// @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
+// @version        2.0.0.@@DATETIMEVERSION@@
+// @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
 // @description    [@@BUILDNAME@@-@@BUILDDATE@@] Show mod slots on map.
-// @include        https://*.ingress.com/intel*
-// @include        http://*.ingress.com/intel*
-// @match          https://*.ingress.com/intel*
-// @match          http://*.ingress.com/intel*
+// @include        https://intel.ingress.com/*
+// @match          https://intel.ingress.com/*
 // @grant          none
 // ==/UserScript==
 
@@ -134,7 +132,8 @@ window.plugin.portalModSlots.addLabel = function(guid) {
       iconAnchor: [22,22],
       html: modSlotsStr
       }),
-    guid: guid
+    guid: guid,
+    interactive: false
   });
   plugin.portalModSlots.slotLayers[guid] = slots;
   slots.addTo(plugin.portalModSlots.slotLayerGroup);
