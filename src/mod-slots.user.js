@@ -2,7 +2,7 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        2.0.0.@@DATETIMEVERSION@@
+// @version        2.0.1.@@DATETIMEVERSION@@
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -144,7 +144,8 @@ window.plugin.portalModSlots.addLabel = function(guid) {
       iconAnchor: [27, L.Browser.mobile ? 27 : 22],
       html: modStr
       }),
-    guid: guid
+    guid: guid,
+    interactive: false
   });
   plugin.portalModSlots.modLayers[guid] = mods;
   mods.addTo(plugin.portalModSlots.modLayerGroup);

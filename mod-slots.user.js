@@ -2,11 +2,11 @@
 // @id             iitc-plugin-mod-slots@randomizax
 // @name           IITC plugin: Portal Mod Status on Map
 // @category       Layer
-// @version        2.0.0.20250420.52311
+// @version        2.0.1.20250420.53933
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
 // @updateURL      https://randomizax.github.io/mod-slots/mod-slots.meta.js
 // @downloadURL    https://randomizax.github.io/mod-slots/mod-slots.user.js
-// @description    [randomizax-2025-04-20-052311] Show mod slots on map.
+// @description    [randomizax-2025-04-20-053933] Show mod slots on map.
 // @include        https://intel.ingress.com/*
 // @match          https://intel.ingress.com/*
 // @grant          none
@@ -20,7 +20,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 // plugin_info.buildName = 'randomizax';
-// plugin_info.dateTimeVersion = '20250420.52311';
+// plugin_info.dateTimeVersion = '20250420.53933';
 // plugin_info.pluginId = 'mod-slots';
 //END PLUGIN AUTHORS NOTE
 
@@ -156,7 +156,8 @@ window.plugin.portalModSlots.addLabel = function(guid) {
       iconAnchor: [27, L.Browser.mobile ? 27 : 22],
       html: modStr
       }),
-    guid: guid
+    guid: guid,
+    interactive: false
   });
   plugin.portalModSlots.modLayers[guid] = mods;
   mods.addTo(plugin.portalModSlots.modLayerGroup);
